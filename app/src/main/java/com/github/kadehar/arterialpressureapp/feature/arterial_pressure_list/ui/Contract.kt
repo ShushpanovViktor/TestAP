@@ -15,6 +15,7 @@ sealed class UiEvent : Event {
     data class OnArterialPressureItemClicked(val arterialPressure: APListItems.ArterialPressure) :
         UiEvent()
     data class OnFilterButtonClicked(val index: Int) : UiEvent()
+    data class OnDeleteIconClicked(val arterialPressure: APListItems.ArterialPressure) : UiEvent()
 }
 
 sealed class DataEvent : Event {

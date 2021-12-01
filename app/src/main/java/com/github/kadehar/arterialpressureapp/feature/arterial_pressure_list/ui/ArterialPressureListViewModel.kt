@@ -3,6 +3,7 @@ package com.github.kadehar.arterialpressureapp.feature.arterial_pressure_list.ui
 import com.github.kadehar.arterialpressureapp.R
 import com.github.kadehar.arterialpressureapp.base.*
 import com.github.kadehar.arterialpressureapp.base.nav.Screens
+import com.github.kadehar.arterialpressureapp.data.toArterialPressure
 import com.github.kadehar.arterialpressureapp.domain.ArterialPressureInteractor
 import com.github.kadehar.arterialpressureapp.feature.arterial_pressure_list.ui.model.APListItems
 import com.github.terrakok.cicerone.Router
@@ -43,7 +44,10 @@ class ArterialPressureListViewModel(
                 return previousState.copy(
                     arterialPressureList = event.arterialPressureList,
                     arterialPressureListShown = event.arterialPressureList,
-                    errorMessage = null
+                    errorMessage = null,
+                    dateFilterList = previousState.dateFilterList.map {
+                        it.copy(isSelected = false)
+                    }
                 )
             }
             is UiEvent.OnAddArterialPressureButtonClicked -> {
@@ -80,6 +84,10 @@ class ArterialPressureListViewModel(
                         it.copy(isSelected = index == event.index && !it.isSelected)
                     }
                 )
+            }
+            is UiEvent.OnDeleteIconClicked -> {
+                interactor.deleteRecord(event.arterialPressure.toArterialPressure())
+                processDataEvent(DataEvent.LoadData)
             }
         }
         return null

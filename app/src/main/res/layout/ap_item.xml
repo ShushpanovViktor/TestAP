@@ -7,6 +7,16 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <ImageView
+        android:id="@+id/apDeleteIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        app:srcCompat="@drawable/ic_delete_icon"
+        tools:srcCompat="@drawable/ic_delete_icon"
+        android:contentDescription="@string/delete_icon"
+        />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

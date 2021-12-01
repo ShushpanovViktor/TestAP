@@ -12,7 +12,6 @@ import com.github.kadehar.arterialpressureapp.base.setThrottledClickListener
 import com.github.kadehar.arterialpressureapp.databinding.FragmentArterialPressureListBinding
 import com.github.kadehar.arterialpressureapp.feature.arterial_pressure_list.ui.adapter.arterialPressureFiltersAdapterDelegate
 import com.github.kadehar.arterialpressureapp.feature.arterial_pressure_list.ui.adapter.arterialPressureListAdapterDelegate
-import com.google.android.material.chip.Chip
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -27,9 +26,14 @@ class ArterialPressureListFragment : Fragment(R.layout.fragment_arterial_pressur
     private val viewModel by viewModel<ArterialPressureListViewModel>()
     private val apListAdapter by lazy(LazyThreadSafetyMode.NONE) {
         ListDelegationAdapter(
-            arterialPressureListAdapterDelegate {
-                viewModel.processUiEvent(UiEvent.OnArterialPressureItemClicked(it))
-            }
+            arterialPressureListAdapterDelegate(
+                onItemClick = {
+                    viewModel.processUiEvent(UiEvent.OnArterialPressureItemClicked(it))
+                },
+                onDeleteIconClick = {
+                    viewModel.processUiEvent(UiEvent.OnDeleteIconClicked(it))
+                }
+            )
         )
     }
 

@@ -11,4 +11,5 @@
     <string name="ap_chip_text_month">Месяц</string>
     <string name="ap_chip_text_three_months">3 мес.</string>
     <string name="ap_chip_text_six_months">6 мес.</string>
+    <string name="delete_icon">Удалить запись</string>
 </resources>
