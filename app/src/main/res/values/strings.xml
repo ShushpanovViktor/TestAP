@@ -10,4 +10,5 @@
     <string name="ap_chip_text_month">Month</string>
     <string name="ap_chip_text_three_months">3 mths</string>
     <string name="ap_chip_text_six_months">6 mths</string>
+    <string name="delete_icon">Delete card</string>
 </resources>

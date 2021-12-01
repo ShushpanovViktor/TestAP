@@ -13,7 +13,7 @@ fun arterialPressureFiltersAdapterDelegate(
     }
 ) {
     binding.root.setOnClickListener {
-        onItemClick(adapterPosition)
+        onItemClick(absoluteAdapterPosition)
     }
 
     bind {
